@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+  <h1>These are all my friends!</h1>
+
+   <table>
+     <thead>
+       <th>Name</th>
+       <th>age</th>
+       <th>friend since</th>
+       <th>actions</th>
+     </thead>
+{% for friend in all_friends: %}
+     <tbody>
+       <td><a href="http://localhost:5000/users/{{friend['id']}}">{{ friend['first_name']}} {{friend['last_name']}}</a></td>
+       <td>{{ friend['age']}}</td>
+       <td>{{ friend['created_at']}}</td>
+       <td><a href="http://localhost:5000/users/{{friend['id']}}">Show</a> <a href="http://localhost:5000/users/{{friend['id']}}/edit">Edit</a> <a href="http://localhost:5000/destroy/{{friend['id']}}">Delete</a></td>
+     </tbody>
+{% endfor %}
+   </table>
+   <a href="http://localhost:5000/users/new">add new friend</a>
+</body>
+</html>
